@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Mars mission</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+      background-color: lightgray;
+      border-color: white;
+      min-height: 150px;
+    }
+    
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: #f2f2f2;
+      padding: 25px;
+    }
+    
+  .carousel-inner img {
+      width: 100%; /* Set width to 100% */
+      margin: auto;
+      min-height:10px;
+  }
+
+  .center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.a {
+  color:#fff ;
+  background-color:#7395ab ;
+  
+}
+
+ 
+  @media (max-width: 600px) {
+    .carousel-caption {
+      display: none; 
+    }
+  }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+        
+          <div class="center">
+            <div class="row">
+                <h1>Mission to Mars</h1>    
+            </div> 
+          <div class="row">  
+            <form>
+            <button  type="submit" type="submit" formaction="/scrape"
+             class="btn btn-secondary" align="center">
+               Scrape new data 
+                </button>
+                </form>
+            
+          </div>   
+         </div> 
+    </div>
+    </div>
+
+</nav>  
+
+  
+<div class="container ">    
+  <h2>Latest Mars News</h2><br>
+  <h3>{{data.news_title}}</h3><br>
+  <p>{{data.news_p}}</p>
+  <div class="row">
+    <div class="col-sm-8">
+      <h3>Featured Image</h3><br>
+      <img src="{{data.featured_image_url}}" class="img-responsive" style="width:100%" alt="Image">
+      <p></p>
+    </div>
+   
+    <div class="col-sm-4">
+      <div class="well">
+        <h4>current Weather on Mars</h4><br>
+       <p>Currently, Mars weather information is not available</p>
+      </div>
+      <div class="well">
+        <h4>Mars facts</h4><br>
+       <p>{{data.mars_facts | safe}}</p>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12" align="center">
+      <h3>Mars Hemispheres</h3><br>
+    </div> 
+  </div>
+
+  <div class="row">
+    <div class="col-sm-6" align="center">
+      <img src="{{data.image_urls[0].img_url}}" class="img-responsive" style="width:100%" alt="Image">
+      <div class="caption">
+        <h4><b>{{data.image_urls[0].title}}</b></h4>
+      </div>
+    </div> 
+    <div class="col-sm-6" align="center">
+      <img src="{{data.image_urls[1].img_url}}" class="img-responsive" style="width:100%" alt="Image">
+      <div class="caption">
+        <h4><b>{{data.image_urls[1].title}}</b></h4>
+      </div>
+    </div> 
+  </div>
+  <div class="row">
+    <div class="col-sm-6" align="center">
+      <img src="{{data.image_urls[2].img_url}}" class="img-responsive" style="width:100%" alt="Image">
+      <div class="caption">
+        <h4><b>{{data.image_urls[2].title}}</b></h4>
+      </div>
+    </div> 
+    <div class="col-sm-6" align="center">
+      <img src="{{data.image_urls[3].img_url}}" class="img-responsive" style="width:100%" alt="Image">
+      <div class="caption">
+        <h4><b>{{data.image_urls[3].title}}</b></h4>
+      </div>
+    </div> 
+  </div>
+
+
+</div><br>
+
+<footer class="container-fluid text-center">
+  <p></p>
+</footer>
+
+</body>
+</html>
